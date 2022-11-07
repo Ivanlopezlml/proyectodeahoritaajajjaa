@@ -1,0 +1,456 @@
+:root {
+    --fuenteBody: 'Raleway', sans-serif;
+    --fuenteHeading: 'Playfair Display', serif;
+
+    --primario: #037bc0;
+}
+
+html { /* el font-size del html es de 16px = 1.6re, */
+    box-sizing: border-box;
+    font-size: 62.5%; /* Con esto 1rem es igual a 10px*/
+}
+  *, *:before, *:after {
+    box-sizing: inherit;
+}
+/* Globales */
+a {
+    text-decoration: none;
+    color: black;
+}
+/* Fuentes de la pagina */
+body {
+    font-family: var(--fuenteBody);
+    font-size: 1.6rem;
+    line-height: 1.5; /* Interlineado en textos */
+}
+h1, h2, h3 {
+    font-family: var(--fuenteHeading);
+    margin: 0 0 5rem 0; /* para eliminar los margenes por default que traen los hedings*/
+}
+h1 {
+    font-size: 5rem;
+}
+h2{
+    font-size: 4rem;
+}
+h3{
+    font-size: 3rem;
+}
+
+img {
+    /* toma todo el ancho disponible que se le ponga ya sea un section, div etc y con display block
+    le diriamos que se ubiquen de abajo hacia arriva debido a que los img tienen un display: inline
+    por defecto poniendo el block eliminaria el espacio de boton y imagen */
+    max-width: 100%;
+    display: block; /* Elimina ese espacio que esta entre el enlace y la imagen*/
+}
+.btn {
+    background-color: #8cbc00;
+    display: block;
+    /*conestetomaratodoelanchodisponible*/border-radius: 1rem;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 900;
+    padding: 1rem;
+    transition: background-color .3s ease-out;
+    text-align: center;
+    border: none;
+    -webkit-transition: background-color .3s ease-out;
+    -moz-transition: background-color .3s ease-out;
+    -ms-transition: background-color .3s ease-out;
+    -o-transition: background-color .3s ease-out;
+}
+.btn:hover{
+    background-color: #769c02;
+    cursor: pointer;
+}
+
+/* Utilidades son clases que hacen simples cosas pero muy Utiles */
+.text-center {
+    text-align: center;
+}
+.padding {
+    margin-top: 3rem;
+}
+.max-width30{
+    max-width: 30rem;
+}
+
+/* Header y Navegacion */
+
+.hero {/* Banner Principal */
+    background-image: url(../img/principal.jpg);
+    height: 55rem; /* aqui se le da la altura para que podamos ver la imagen */
+    background-size: cover; /* Aqui se estira y toma todo el espacio disponible */
+    background-repeat: no-repeat;
+    background-position: center center; /* el primer valor es para mover en el eje x y el otro en el eje y la posicion de la foto se pueden usar px */
+}
+
+.nombre-sitio  {
+    margin-top: 5rem;
+    /* margin-bottom: 5rem; lo comento por que en los valores globales de los h1.. ya estan definidos alla arriva */
+    text-align: center;
+}
+
+.nombre-sitio span {
+    color: #037bc0;
+}
+
+.nav-principal {
+    /* border-color: #1e1e1e1e;
+    border-top-style: solid; /* Asignamos el estilo del borde en este caso solido y ponemos en donde sera ese border en este caso top 
+    border-width: 1px; Ancho del Borde */
+    /* border-top: 1px solid #1e1e1e1e;  Esta linea es lo mismo que la de arriva **/
+    padding: 2rem 0rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    /* ! atajos de Margin y padding
+    padding: 20px 0px 20px 0px; 1primero(arriva) 2segundo(derecha) 3tercero(abajo) 4to(izquierda)
+    padding: 20px opx;   Solo si se repiten tomando el ejemplo de arriva
+    margin: 10px 0px 10px 0px;  se aplica las mismas reglas del padding
+    margin: 10px 0px; atajo el 10px se aplica arriva y abajo y el 0px se aplica a la derecha y la izquierda
+    **/
+}
+.nav-principal a:hover{
+    transform: scale(.9);
+}
+.contenedor-navegacion{ /* clase padre */ 
+    border-top: .1rem solid #f7b6b61e; 
+}
+.contenedor { /* Clase Hija es global */
+    max-width: 120rem;
+    margin: 0 auto; /* cuando el ponemos auto toma el valor del width ya que es el ancho*/
+}
+
+/** Listado Categorias **/
+.categorias {
+    padding-top: 5rem;
+}
+.categorias h2{
+    text-align: center;
+}
+.categoria a{
+    text-align: center;
+    display: block; /* Tenemos que ponder block por que por defecto tiene display: inline solo estaria tomando el espacio necesario */
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+/* Hover para los encales */
+
+/* Se pueden modificar los bordes a tu antojo bastante increible */
+.categoria a:hover {
+    background-color: var(--primario);
+    color: #ffffff;
+    border-bottom-right-radius: 1rem;
+    /*border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    */
+}
+
+.listado-categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /*es igua que esti => 200px 200px 200px 200px */
+    gap: 2rem; /* Separacion entre columnas */
+}
+
+/* Seccion Sobre Nosotros */ 
+
+.sobre-nosotros {
+    background-image: linear-gradient(to right, transparent 50%, #037bc0 50%, #037bc0 100%), 
+    url(../img/nosotros.jpg);
+    background-position: left center;
+    padding: 10rem;
+    background-repeat: no-repeat;
+    background-size: 100%, 120rem;
+    margin: 4rem 0rem;
+}
+.sobre-nosotros-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 5rem;
+}
+.texto-nosotros {
+    grid-column: 2 / 3;
+    color: #ffffff;
+}
+
+/* Main Listado de Productos */
+
+.contenido-principal {
+    padding-top: 5rem;
+}
+.producto {
+    background-color: var(--primario);
+}
+.texto-producto h3 {
+    margin: 0; /* para eliminar ek margen que traen los h1.. */
+}
+.texto-producto p{
+    margin: 0 0 .5rem 0; /* separacion de parrafo en la parte de abajo */
+}
+.texto-producto .precio {
+    font-size: 2.8rem;
+    font-weight: 900; /* hacemos uso de las variantes de fuente que descargamos */
+}
+.texto-producto {
+    text-align: center;
+    color: #fff;
+    padding: 2rem;
+}
+/* Aplicando grid A Nuestros Productos */
+.listado-productos {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    /* 
+    Segunda Opcion
+    column-gap: 2rem; solo espacio entre columnas
+    row-gap: 2rem; solo espacio entre filas
+    */
+}
+.producto:nth-child(1) {
+    /* grid-column: 1 / 7; Forma 1*/
+    grid-column-start: 1; /* Forma 2 de Posicionar */
+    grid-column-end: 7; 
+    display: grid;
+    grid-template-columns: 3fr 1fr; /* hay un entero de 4 el primero agarrara 3 partes de 4 y el segundo 1 parte de cuatro */
+}
+.producto:nth-child(1) img {
+    /* Aqui se le asigna el tamño que tendra la imagen le estamos diciendo que este 
+    lo mas grande posible pero con objet filter le decimos si que este grande pero que me muestre 
+    una fraccion de esa imagen una parte sin que esta se dedsborde del contenedor */
+    height: 43rem; /* Definimos la altura de la Figura*/
+    width: 100%; /* Aqui toma todo el tamaño defino en grid template colums le pusimos 3 /4 */
+    object-fit: cover; /* Trae Mas opciones aparte de la de cover */
+}
+.producto:nth-child(2){
+    grid-column: 1 / 4;
+}
+.producto:nth-child(2) img,
+.producto:nth-child(3) img {
+    height: 30rem;
+    width: 100%; 
+    object-fit: cover;
+}
+.producto:nth-child(3){
+    grid-column-start: 4;
+    grid-column-end: 7;
+}
+.producto:nth-child(4){
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+.producto:nth-child(5){
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+.producto:nth-child(6){
+    grid-column-start: 5;
+    grid-column-end: 7;
+}
+
+/* Seccion del Footer */
+footer {
+    margin-top: 4rem;
+    border-top: .1rem solid #1e1e1e1e; 
+}
+.footerX {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+}
+.EnlaceX a{
+    width: 30%;
+    padding: .5rem;
+    display: block;
+}
+.Tamaño a{
+    display: block;
+    width: 40%;
+    padding: .5rem;
+}
+
+.footerX a:hover{
+    transform: scale(.9);
+}
+
+
+/* ---------------------------- NOSOTROS --------------------------------- */
+
+.mas_nosotros h3{
+    text-align: center;
+    margin: 3rem 0rem ;
+}
+.grid_nosotros{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    /* Si el contenido que tiene la clase ".grid_nosotros" mide menos de 30rem o 300px 
+    le asignara una una fraccion a cada uno de las columnas creadas es decir 
+    una se pone debajo de la otra */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    column-gap: 4rem;
+}
+
+/*----- Estilos pagina blog ----- */
+
+/* BLOG */
+.contenedor-blog {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 2rem;
+}
+.entrada{
+    border-bottom: 2px solid #1e1e1e1e;
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+/* Eliminamos el Borde del Ultimo article */
+.entrada:last-of-type {
+    border: none;
+}
+/* Ajuste del Texto de los articles */
+.entrada-meta {
+    display: flex;
+    justify-content: space-between;
+}
+.entrada-meta p{
+    font-weight: bold;
+}
+.entrada-meta span{
+    color: #037bc0;
+}
+
+/* ----------------- Seccion de Leer o Entrada Blog ------------------- */
+.contenido-entrada-blog{
+    width: 60rem;
+    margin: 0rem auto;
+}
+
+/* --------------- Seccion de Galeria ----------------------- */
+
+.galeria {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.galeria img {
+    width: 40rem;
+    height: 40rem;
+    object-fit: cover;
+}
+
+/* ------------------ CONTACTO ------------------ */
+/* Formulario */
+.formulario {
+    max-width: 60rem;
+    margin: 0 auto;
+}
+.formulario fieldset {
+    border: 1px solid black;
+    margin-bottom: 2rem;
+}
+.formulario legend {
+    background-color: #005485;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: .8rem;
+    margin-bottom: 4rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+}
+.campo label { /* Con este se le da un tamaño base al label para quedar alineado con la otra columna recordando que por default un row*/
+    flex-basis: 10rem; /* Es como darle un tamaño base ase elemento */
+}
+/* Opcion 1 para darle estilos a los inputs */
+/* .campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="email"]   { /* Aqui se le dice que se expanda al tamaño que hay disponible 
+    flex: 2;
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
+} */
+
+/* Opcion 2 para que el radio buton no tenga esos estilos */
+/* Aqui aplicaremos los siguientes estilos excepto a el input con "type="radio""; */
+.campo input:not( [type="radio"]),
+.campo select,
+.campo textarea {
+    flex: 2;
+    border: 1px solid #e1e1e1;
+    padding: 1rem;
+}
+
+
+
+/* #navegacion-principal a:nth-child(4){
+    color: red;
+} */
+
+/* nav a:nth-child(2) { /* se puede usar tambien first-child este selecciona el primer elemento
+    color: green;
+} */
+
+/* nav a {   
+    text-transform: lowercase;  /* todo minuscula 
+    color: blue;
+}
+
+#navegacion a {
+    text-transform: capitalize!important;  /* letras inciales en mayuscula 
+    color: yellow;
+}
+
+.navegacion a {
+    text-transform: uppercase; /* todo mayuscula
+    color: red;
+} */
+
+/*
+Estas son las prioridades de aplicacion de estilos 
+el !important tiene el maximo peso de importancia  
+cuando se coloca en los atributos en css
+
+0 0 0 2 // nav a  (Solo etiquetas)
+0 0 1 1 // .navegacion a (con clase y hace mension a etiqueta)
+0 1 0 1 // #navegacion a (con id y hace mencion a etiqueta)
+1 0 0 0 // text-transform: capitalize!important; (cuando trae un important en un atributo)
+*/
+
+/* Moduloa, BEM, SMACSS */
+.enlace {
+text-transform: capitalize;
+/*font-weight: bold;*/
+}
+
+/* .sobre-nosotros {
+    background-color: blue;
+    width: 400px;
+    height: 400px;
+    padding: 100px;
+    box-sizing: border-box;
+} */
+
+/** Display Block y Display inline **/
+/** Los enlaces por defecto tienen un display Por default en inline **/
+/* 
+p { /* El display por default es display: block
+    background-color: blue;
+    color: white;
+    width: 400px;
+    height: 100px;
+    display: inline-block;  permite cambiar el width y el hight 
+} */
+
